@@ -1,0 +1,30 @@
+digraph circle{
+    node [shape=plaintext]
+    rankdir = LR
+
+    file_systems [
+        label=< 
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD PORT="name">file_systems</TD>
+            </TR>
+            <TR>
+                <TD PORT="next">next</TD>
+            </TR>
+        </TABLE>>
+    ];
+     file_system_1 [
+        label=< 
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD PORT="name">file_system</TD>
+            </TR>
+            <TR>
+                <TD PORT="next">next</TD>
+            </TR>
+        </TABLE>>
+    ];
+    file_systems:next -> file_system_1:name
+    file_system_1:next -> null
+
+}

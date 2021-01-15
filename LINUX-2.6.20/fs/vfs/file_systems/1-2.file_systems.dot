@@ -1,0 +1,170 @@
+digraph circle{
+    node [shape=plaintext]
+    rankdir = LR
+
+    file_systems [
+        label=< 
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD PORT="name">file_systems</TD>
+            </TR>
+            <TR>
+                <TD PORT="next">next</TD>
+            </TR>
+        </TABLE>>
+    ];
+    subgraph cluster_fs1 {
+        style=filled;
+        color=yellow;
+        
+        "file_system_1" [
+            label= "file_system_1"
+        ]; 
+
+        "file_system_1_next" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">next</TD>
+                </TR>
+            </TABLE>>
+        ]; 
+        "file_system_1_fs_supers" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">fs_supers</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+
+    }
+
+    file_systems:next -> file_system_1
+    file_system_1_next -> null
+
+    subgraph cluster_sb1 {
+        style=filled;
+        color=yellow;
+
+        "s_instances_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_instances</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ]; 
+
+        "s_type_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_type</TD>
+                </TR>
+            </TABLE>>
+        ]; 
+        "s_list_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_list_1</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        label = "super_block_1";
+    }
+    subgraph cluster_sb2 {
+        style=filled;
+        color=yellow;
+
+        "s_instances_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_instances</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ]; 
+
+        "s_type_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_type</TD>
+                </TR>
+            </TABLE>>
+        ]; 
+        "s_list_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_list_2</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        label = "super_block_2";
+    }
+
+    super_blocks [
+        label=< 
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD PORT="name">super_blocks</TD>
+            </TR>
+            <TR>
+                <TD PORT="prev">prev</TD>
+            </TR>
+            <TR>
+                <TD PORT="next">next</TD>
+            </TR>
+        </TABLE>>
+    ];
+
+
+
+    super_blocks:prev -> s_list_2:name [color=green]
+    super_blocks:next -> s_list_1:name [color=red]
+    s_list_1:prev -> super_blocks:name [color=green]
+    s_list_1:next:e -> s_list_2:name [color=red]
+    s_list_2:prev:e -> s_list_1:name [color=green]
+    s_list_2:next -> super_blocks:name [color=red]
+
+
+    s_type_1:s_type -> file_system_1
+    s_type_2:s_type -> file_system_1
+    file_system_1_fs_supers:next -> s_instances_2:name
+    s_instances_1:prev -> s_instances_2:name
+    s_instances_2:next -> s_instances_1:name
+    s_instances_2:prev -> file_system_1_fs_supers:name
+}
