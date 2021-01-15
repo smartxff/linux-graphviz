@@ -1,0 +1,44 @@
+digraph g{
+    graph [
+        rankdir = "LR"
+    ];
+
+
+    "super_blocks" [
+        label = "<name> super_blocks| <prev> prev | <next> next"
+        shape = "record"
+    ];
+
+    subgraph cluster_0 {
+        style=filled;
+        color=yellow;
+    
+
+        "s_list_1" [
+            label = "<name> s_list | <prev> prev | <next> next"
+            shape = "record"
+        ]
+        label = "super_block_1";
+  }
+
+
+    "super_blocks":prev -> "s_list_1":name [
+        id = 0
+        color=green
+    ];
+    "super_blocks":next -> "s_list_1":name [
+        id = 1
+        color=red
+    ];
+
+    "s_list_1":prev:e -> "super_blocks":name [
+        id = 2
+        color=green
+    ];
+     "s_list_1":next:e -> "super_blocks":name [
+        id = 3
+        color=red
+    ];
+
+
+}

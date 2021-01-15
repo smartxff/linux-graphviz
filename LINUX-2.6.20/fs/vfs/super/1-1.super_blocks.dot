@@ -1,0 +1,17 @@
+digraph g{
+    graph [
+        rankdir = "LR"
+    ];
+    "super_blocks" [
+        label = "<name> super_blocks| <pre> prev | <next> next"
+        shape = "record"
+    ];
+    "super_blocks":pre -> "super_blocks":name [
+        id = 0
+        color=green
+    ];
+     "super_blocks":next -> "super_blocks":name [
+        id = 1
+        color=red
+    ];
+}

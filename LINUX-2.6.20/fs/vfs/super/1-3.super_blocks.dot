@@ -1,0 +1,70 @@
+digraph circle{
+    node [shape=plaintext]
+    rankdir = LR
+
+    super_blocks [
+        label=< 
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD PORT="name">super_blocks</TD>
+            </TR>
+            <TR>
+                <TD PORT="prev">prev</TD>
+            </TR>
+            <TR>
+                <TD PORT="next">next</TD>
+            </TR>
+        </TABLE>>
+    ];
+
+    subgraph cluster_sb1 {
+        style=filled;
+        color=yellow;
+    
+
+         "s_list_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_list_1</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        label = "super_block_1";
+    }
+    subgraph cluster_sb2 {
+        style=filled;
+        color=yellow;
+    
+
+        "s_list_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_list_2</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        label = "super_block_2";
+    }
+    super_blocks:prev -> s_list_2:name [color=green]
+    super_blocks:next -> s_list_1:name [color=red]
+    s_list_1:prev -> super_blocks:name [color=green]
+    s_list_1:next:e -> s_list_2:name [color=red]
+    s_list_2:prev:e -> s_list_1:name [color=green]
+    s_list_2:next -> super_blocks:name [color=red]
+
+
+}
