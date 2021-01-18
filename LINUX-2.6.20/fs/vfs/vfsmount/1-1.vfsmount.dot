@@ -1,0 +1,324 @@
+digraph circle{
+    node [shape=plaintext]
+    rankdir = LR
+
+    subgraph cluster_vfsmount1 {
+        style=filled;
+        color=red;
+
+        "vfsmount_1" [
+            label= "vfsmount"
+        ]; 
+        "mnt_sb_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">mnt_sb</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "mnt_root_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">mnt_root</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "mnt_parent_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">mnt_parent</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "mnt_mountpoint_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">mnt_mountpoint</TD>
+                </TR>
+            </TABLE>>
+        ];
+    }
+    subgraph cluster_sb1 {
+        style=filled;
+        color=green;
+
+        "super_block_1" [
+            label= "super_block_1"
+        ]; 
+
+         "s_inodes_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_inodes(list)</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "s_root_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">s_root</TD>
+                </TR>
+            </TABLE>>
+        ];
+
+    }
+
+    subgraph cluster_inode1 {
+        style=filled;
+
+
+
+         "i_sb_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">i_sb</TD>
+                </TR>
+            </TABLE>>
+        ];
+
+        "i_sb_list_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">i_sb_list</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+
+
+        "i_dentry_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">i_dentry(list)</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "inode_1" [
+            label= "inode_1"
+        ]; 
+    }
+
+    subgraph cluster_inode2 {
+        style=filled;
+
+
+        "inode_2" [
+            label= "inode_2"
+        ]; 
+         "i_sb_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">i_sb</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "i_sb_list_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">i_sb_list</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "i_dentry_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">i_dentry(list)</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+    }
+
+    subgraph cluster_dentry1 {
+        style=filled;
+        color=yellow;
+
+        "dentry_1" [
+            label= "dentry_root"
+        ]; 
+
+         "d_sb_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">d_sb</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "d_inode_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">d_inode</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "d_parent_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">d_parent</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "d_alias_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">d_alias</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "d_subdirs_1" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">d_subdirs(list)</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+    }
+    subgraph cluster_dentry2 {
+        style=filled;
+        color=yellow;
+
+        "dentry_2" [
+            label= "dentry_2"
+        ]; 
+        "d_u_d_child_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">d_u.d_child</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "d_alias_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">d_alias</TD>
+                </TR>
+                <TR>
+                    <TD PORT="prev">prev</TD>
+                </TR>
+                <TR>
+                    <TD PORT="next">next</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "d_inode_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">d_inode</TD>
+                </TR>
+            </TABLE>>
+        ];
+        "d_parent_2" [
+            label=< 
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                <TR>
+                    <TD PORT="name">d_parent</TD>
+                </TR>
+            </TABLE>>
+        ];
+    }
+
+    i_sb_1:i_sb:e -> super_block_1:e
+    i_sb_2:i_sb -> super_block_1
+    s_inodes_1:prev:e -> i_sb_list_1:name:e [color=red]
+    i_sb_list_1:next:e -> s_inodes_1:name:e [color=blue]
+    d_sb_1:name -> super_block_1
+    d_parent_1:name:w -> d_parent_1
+
+    i_dentry_1:prev -> d_alias_1:name
+    i_dentry_1:next -> d_alias_1:name
+    d_alias_1:prev -> i_dentry_1:name
+    d_alias_1:next -> i_dentry_1:name
+
+    d_subdirs_1:prev -> d_u_d_child_2:name [color=red]
+    d_subdirs_1:next -> d_u_d_child_2:name [color=red]
+    d_u_d_child_2:prev -> d_subdirs_1:name [color=blue]
+    d_u_d_child_2:next -> d_subdirs_1:name [color=blue]
+
+    d_inode_1 -> inode_1
+    d_inode_2 -> inode_2     [color=blue]
+
+    i_sb_list_1:prev -> i_sb_list_2:name [color=green]
+    i_sb_list_2:next -> i_sb_list_1:name [color=blue]
+    i_sb_list_2:prev -> s_inodes_1:name [color=red]
+    s_inodes_1:next -> i_sb_list_2:name [color=red]
+
+
+    i_dentry_2:prev -> d_alias_2:name
+    i_dentry_2:next -> d_alias_2:name
+    d_alias_2:prev -> i_dentry_2:name
+    d_alias_2:next -> i_dentry_2:name
+
+    d_parent_2 -> dentry_1
+    s_root_1 -> dentry_1
+
+    mnt_sb_1 -> super_block_1:name
+    mnt_root_1 -> dentry_1:name
+    mnt_mountpoint_1 -> dentry_1:name
+    mnt_parent_1 -> mnt_parent_1
+}
